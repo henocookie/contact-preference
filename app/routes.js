@@ -23,6 +23,7 @@ var moment = require('moment');
 router.use('/', require('./routes/appointments.js'))
 router.use('/', require('./routes/consultations.js'))
 router.use('/', require('./routes/contact-preferences.js'))
+router.use('/', require('./routes/lateral-flow.js'))
 router.use('/', require('./routes/messaging.js'))
 router.use('/', require('./routes/prescriptions.js'))
 router.use('/', require('./routes/login.js'))

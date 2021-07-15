@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
 {% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
-{% set contentTitle = "Who are you reporting a result for?" %}
+{% set contentTitle = "Did you take this test for your job?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -22,7 +22,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="nhs-login">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="where-in-the-uk-do-you-live">Back</a></p>
 
   </div>
 </nav>
@@ -42,19 +42,24 @@
                 {{ contentTitle }}
               </h1>
             </legend>
+
+            <div class="nhsuk-hint nhsuk-u-margin-bottom-2">
+              This also applies to temporary staff and volunteers.
+            </div>
+          
           </fieldset>
       
           <div class="nhsuk-radios">
             <div class="nhsuk-radios__item">
-              <input class="nhsuk-radios__input" id="myself" name="who-are-you-reporting-for" type="radio" value="myself">
-              <label class="nhsuk-label nhsuk-radios__label" for="myself">
-                Myself
+              <input class="nhsuk-radios__input" id="yes" name="takeTestForJob" type="radio" value="Yes">
+              <label class="nhsuk-label nhsuk-radios__label" for="yes">
+                Yes
               </label>
             </div>
             <div class="nhsuk-radios__item">
-              <input class="nhsuk-radios__input" id="someone-else" name="who-are-you-reporting-for" type="radio" value="someone else">
-              <label class="nhsuk-label nhsuk-radios__label" for="someone-else">
-                Someone else
+              <input class="nhsuk-radios__input" id="no" name="takeTestForJob" type="radio" value="No">
+              <label class="nhsuk-label nhsuk-radios__label" for="no">
+                No
               </label>
             </div>
           </div>
@@ -62,7 +67,7 @@
       
       </div>
 
-      <form action="where-in-the-uk-do-you-live" method="post">
+      <form action="test-reason" method="post">
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>

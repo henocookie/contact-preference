@@ -1,0 +1,94 @@
+{% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
+{% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
+{% set contentTitle = "Tell us about the work" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="did-you-take-this-test-for-your-job">Back</a></p>
+
+  </div>
+</nav>
+{% include "./_parts/silver-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <div class="nhsuk-form-group">
+
+          <fieldset class="nhsuk-fieldset">
+            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl nhs-app-xl">
+              <h1 class="nhsuk-fieldset__heading">
+                {{ contentTitle }}
+              </h1>
+            </legend>
+          
+          </fieldset>
+      
+          <div class="nhsuk-radios">
+
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="social-care" name="about-work" type="radio" value="It’s for a social care service" aria-describedby="social-care-item-hint">
+              <label class="nhsuk-label nhsuk-radios__label" for="social-care">
+                It’s for a social care service
+              </label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="social-care-item-hint">
+                This includes domiciliary care, care homes, extra care, supported living, children’s homes and day care centres.
+              </div>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="education-provider" name="about-work" type="radio" value="It’s for an education provider" aria-describedby="education-provider-item-hint">
+              <label class="nhsuk-label nhsuk-radios__label" for="education-provider">
+                It’s for an education provider
+              </label>
+              <div class="nhsuk-hint nhsuk-radios__hint" id="education-provider-item-hint">
+                For example a nursery, school, college, university, childcare provider, childminder or other education provider.
+              </div>
+            </div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="nhs-england-ni-wales" name="about-work" type="radio" value="It’s for the NHS in England, Northern Ireland or Wales">
+              <label class="nhsuk-label nhsuk-radios__label" for="nhs-england-ni-wales">
+                It’s for the NHS in England, Northern Ireland or Wales
+              </label>
+            </div>
+            <div class="nhsuk-radios__divider">or</div>
+            <div class="nhsuk-radios__item">
+              <input class="nhsuk-radios__input" id="not-listed" name="about-work" type="radio" value="It’s not listed">
+              <label class="nhsuk-label nhsuk-radios__label" for="not-listed">
+                It’s not listed
+              </label>
+            </div>
+      
+          </div>
+        </fieldset>
+      
+      </div>
+
+      <form action="" method="post">
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+    </div>
+  </div>
+{% endblock %}
