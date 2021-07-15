@@ -35,9 +35,12 @@ $( document ).ready(function() {
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="interrupt">Back</a></p>
+
   </div>
 </nav>
+{% include "./_parts/silver-banner.html" %}
+
 {% endblock %}
 
 {% block content %}
@@ -65,7 +68,7 @@ $( document ).ready(function() {
       <p><strong>NHS Test and trace</strong> will use your NHS login information to...</p>
 
 
-      <form action="/{{ PROTOTYPEURL }}/who/v2/index?engageLoginAccepted=true&medLogin=seen" method="post">
+      <form action="/{{ PROTOTYPEURL }}/who-are-you-reporting-for" method="post">
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>
