@@ -24,7 +24,7 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
@@ -47,7 +47,7 @@
               {{ contentTitle }}
             </h1>
             <p>COVID-19 rapid lateral flow test results are collected by NHS Test and Trace.</p>
-            <form action="/{{ PROTOTYPEURL }}/terms/v2/index" method="post">
+            <form action="/{{ PROTOTYPEURL }}/nhs-login" method="post">
               <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
             </form>
             <p>

@@ -1,5 +1,5 @@
-{% set PROTOTYPEURL = "app/engage" %}
-{% set serviceName = "Engage" %}
+{% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
+{% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
 {% set contentTitle = "Agree to share your NHS login information" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% if data['appts'] == 'True' %}
@@ -32,8 +32,8 @@ $( document ).ready(function() {
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/app/send-a-message/v3">Home</a></li>
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Online consultations</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
     </ol>
     <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
   </div>
@@ -46,23 +46,23 @@ $( document ).ready(function() {
 
       <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
 
-      <p>To continue, you need to agree to share your NHS login information with <strong>'Engage Health Systems Limited'</strong>.</p>
+      <p>To continue, you need to agree to share your NHS login information with <strong>NHS Test and Trace</strong>.</p>
 
-      <p><strong>'Engage Health Systems Limited'</strong> will use your:</p>
+      <p><strong>NHS Test and Trace</strong> will use your:</p>
 
 
       <ul>
         <li>NHS number</li>
-        <li>date of birth</li>
-        <li>last name</li>
-        <li>identity score</li>
-        <li>email address</li>
         <li>first names</li>
+        <li>last name</li>
+        <li>date of birth</li>
+        <li>email address</li>
+        <li>identity score</li>
         <li>GP surgery's name and address</li>
         <li>mobile phone number</li>
       </ul>
 
-      <p>If you agree, read their terms of use and privacy policy to check how your information will be used.</p>
+      <p><strong>NHS Test and trace</strong> will use your NHS login information to...</p>
 
 
       <form action="/{{ PROTOTYPEURL }}/who/v2/index?engageLoginAccepted=true&medLogin=seen" method="post">
@@ -70,7 +70,7 @@ $( document ).ready(function() {
         </input>
       </form>
 
-      <p><a href="javascript:void(0)">I do not agree to share this information</a></p>
+      <p><a href="/{{ PROTOTYPEURL }}/">I do not agree to share this information</a></p>
     </div>
   </div>
 {% endblock %}
