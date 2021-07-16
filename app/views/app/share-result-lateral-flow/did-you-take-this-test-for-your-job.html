@@ -33,7 +33,7 @@
 {% block content %}
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
-
+      <form action="did-you-take-this-test-for-your-job" method="post">
       <div class="nhsuk-form-group">
 
           <fieldset class="nhsuk-fieldset">
@@ -51,13 +51,13 @@
       
           <div class="nhsuk-radios">
             <div class="nhsuk-radios__item">
-              <input class="nhsuk-radios__input" id="yes" name="takeTestForJob" type="radio" value="Yes">
+              <input class="nhsuk-radios__input" id="takeTestForJob-yes" name="takeTestForJob" type="radio" value="Yes">
               <label class="nhsuk-label nhsuk-radios__label" for="yes">
                 Yes
               </label>
             </div>
             <div class="nhsuk-radios__item">
-              <input class="nhsuk-radios__input" id="no" name="takeTestForJob" type="radio" value="No">
+              <input class="nhsuk-radios__input" id="takeTestForJob-no" name="takeTestForJob" type="radio" value="No">
               <label class="nhsuk-label nhsuk-radios__label" for="no">
                 No
               </label>
@@ -67,7 +67,7 @@
       
       </div>
 
-      <form action="test-reason" method="post">
+      
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>
