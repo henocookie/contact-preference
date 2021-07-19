@@ -2,6 +2,9 @@
 @import 'node_modules/nhsuk-frontend/packages/nhsuk';
 @import "nhs-app/buttons";
 
+// Import GOV.UK frontend library
+@import "node_modules/govuk-frontend/govuk/all";
+
 
 // Components that are not in the NHS.UK frontend library
 @import 'components/panel-confirmation';
