@@ -31,42 +31,37 @@
 {% endblock %}
 
 {% block content %}
-  <div class="nhsuk-grid-row">
-    <div class="nhsuk-grid-column-two-thirds">
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+    <form action="where-in-the-uk-do-you-live-gov" method="post">
 
-      <div class="nhsuk-form-group">
-
-          <fieldset class="nhsuk-fieldset">
-            <legend class="nhsuk-fieldset__legend nhsuk-fieldset__legend--xl nhs-app-xl">
-              <h1 class="nhsuk-fieldset__heading">
-                {{ contentTitle }}
-              </h1>
-            </legend>
-          </fieldset>
-      
-          <div class="nhsuk-radios">
-            <div class="nhsuk-radios__item">
-              <input class="nhsuk-radios__input" id="myself" name="who-are-you-reporting-for" type="radio" value="myself">
-              <label class="nhsuk-label nhsuk-radios__label" for="myself">
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-fieldset__heading">
+              {{ contentTitle }}
+            </h1>
+          </legend>
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="who-are-you-reporting-for-myself" name="who-are-you-reporting-for" type="radio" value="Myself">
+              <label class="govuk-label govuk-radios__label" for="who-are-you-reporting-for-myself">
                 Myself
               </label>
             </div>
-            <div class="nhsuk-radios__item">
-              <input class="nhsuk-radios__input" id="someone-else" name="who-are-you-reporting-for" type="radio" value="someone else">
-              <label class="nhsuk-label nhsuk-radios__label" for="someone-else">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="who-are-you-reporting-for-someone-else" name="who-are-you-reporting-for" type="radio" value="Someone else">
+              <label class="govuk-label govuk-radios__label" for="who-are-you-reporting-for-someone-else">
                 Someone else
               </label>
             </div>
           </div>
         </fieldset>
-      
       </div>
 
-      <form action="where-in-the-uk-do-you-live" method="post">
-        <input type="submit" class="nhsuk-button" value="Continue">
-        </input>
-      </form>
-
-    </div>
+      <button class="govuk-button" data-module="govuk-button">
+        Continue
+      </button>
+    </form>
   </div>
 {% endblock %}

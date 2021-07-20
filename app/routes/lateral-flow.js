@@ -13,5 +13,14 @@ router.post('/app/share-result-lateral-flow/did-you-take-this-test-for-your-job'
   }
 });
 
+router.post('/app/share-result-lateral-flow/did-you-take-this-test-for-your-job-gov', function (req, res) {
+  let answer = req.body.takeTestForJob;
+  if (answer === 'Yes') {
+    res.redirect('/app/share-result-lateral-flow/about-work')
+  } else {
+    res.redirect('/app/share-result-lateral-flow/test-reason')
+  }
+});
+
 
 module.exports = router;
