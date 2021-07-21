@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
 {% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
-{% set contentTitle = "Where in the UK do you live?" %}
+{% set contentTitle = "Who are you reporting a result for?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -22,7 +22,7 @@
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
       <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
     </ol>
-    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="who-are-you-reporting-for">Back</a></p>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="/{{ PROTOTYPEURL }}/">Back</a></p>
 
   </div>
 </nav>
@@ -46,27 +46,15 @@
       
           <div class="nhsuk-radios">
             <div class="nhsuk-radios__item">
-              <input class="nhsuk-radios__input" id="england" name="where-in-the-uk-do-you-live" type="radio" value="England">
-              <label class="nhsuk-label nhsuk-radios__label" for="england">
-                England
+              <input class="nhsuk-radios__input" id="myself" name="who-are-you-reporting-for" type="radio" value="myself">
+              <label class="nhsuk-label nhsuk-radios__label" for="myself">
+                Myself
               </label>
             </div>
             <div class="nhsuk-radios__item">
-              <input class="nhsuk-radios__input" id="scotland" name="where-in-the-uk-do-you-live" type="radio" value="Scotland">
-              <label class="nhsuk-label nhsuk-radios__label" for="scotland">
-                Scotland
-              </label>
-            </div>
-            <div class="nhsuk-radios__item">
-              <input class="nhsuk-radios__input" id="northernIreland" name="where-in-the-uk-do-you-live" type="radio" value="Northern Ireland">
-              <label class="nhsuk-label nhsuk-radios__label" for="northernIreland">
-                Northern Ireland
-              </label>
-            </div>
-            <div class="nhsuk-radios__item">
-              <input class="nhsuk-radios__input" id="wales" name="where-in-the-uk-do-you-live" type="radio" value="Wales">
-              <label class="nhsuk-label nhsuk-radios__label" for="wales">
-                Wales
+              <input class="nhsuk-radios__input" id="someone-else" name="who-are-you-reporting-for" type="radio" value="someone else">
+              <label class="nhsuk-label nhsuk-radios__label" for="someone-else">
+                Someone else
               </label>
             </div>
           </div>
@@ -74,7 +62,7 @@
       
       </div>
 
-      <form action="did-you-take-this-test-for-your-job" method="post">
+      <form action="where-in-the-uk-do-you-live" method="post">
         <input type="submit" class="nhsuk-button" value="Continue">
         </input>
       </form>

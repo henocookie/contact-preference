@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
 {% set serviceName = "NHS App" %}
-{% set contentTitle = "Report a COVID-19 rapid lateral flow test result" %}
+{% set contentTitle = "Report a COVID-19 rapid lateral flow test result in the NHS App" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -29,20 +29,65 @@
       {% from 'action-link/macro.njk' import actionLink %}
 
       {{ actionLink({
-        "text": "Start Report a COVID-19 rapid lateral flow test result prototype",
-        "href": "/app/v8/start-screen-new"
+        "text": "Start latest prototype",
+        "href": "/app/share-result-lateral-flow/iframe"
       }) }}
 
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            Latest version screens
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <ul>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/interrupt">Third party service interrupt</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/nhs-login">Share NHS login information</a>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <hr>
+
       <section>
-        <h2>Latest version screens</h2>
+        <h2>Jump off point options</h2>
+        <h3>No COVID-19 services hub</h3>
         <ul>
           <li>
-            <a href="/{{ PROTOTYPEURL }}/interrupt">Third party service interrupt</a>
+            <a href="/app/v8/index">Report a lateral flow test result on the Home screen and Your health</a>
           </li>
           <li>
-            <a href="/{{ PROTOTYPEURL }}/nhs-login">Share NHS login information</a>
+            <a href="/app/v8/index-without-lateral-flow-report">Report a lateral flow test result only in Your health</a>
           </li>
         </ul>
+        <h3>COVID-19 services in a hub</h3>
+        <ul>
+          <li>
+            <a href="/app/records/v3/pre-hub-covid19-services">Only inside Your health</a>
+          </li>
+          <li>
+            <a href="/app/records/v3/pre-hub-covid19-services">Only inside Your health, but COVID pass still on Home screen</a>
+          </li>
+          <li>
+            <a href="/app/v8/index-covid19-services">On Home screen and inside Your health</a>
+          </li>
+        </ul>
+      </section>
+
+      <hr>
+
+      <section>
+        <h2>Old prototype versions</h2>
+        <ul>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/nhs-styles/who-are-you-reporting-for">nhsuk-frontend style service</a>
+          </li>
+        </ul>
+      </section>
 
     </div>
   </div>
