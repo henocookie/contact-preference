@@ -1,0 +1,109 @@
+{% set PROTOTYPEURL = "app/v8" %}
+{% set serviceName = "NHS App" %}
+{% set contentTitle = "Home" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% set homeActive = "active" %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+{% endblock %}
+
+{% block content %}
+<div class="nhsuk-grid-row">
+  <div class="nhsuk-grid-column-two-thirds">
+
+
+    <h1 class="nhsuk-heading-xl nhsuk-u-margin-bottom-2">{{ contentTitle }}</h1>
+    {{ summaryList({
+      classes: 'nhsuk-summary-list--no-border nhs-app-summary-list-inline',
+      rows: [
+        {
+          key: {
+            text: "Name:"
+          },
+          value: {
+            text: "Mrs Betty Doyle"
+          }
+        },
+        {
+          key: {
+            text: "Date of birth:"
+          },
+          value: {
+            text: "20 September 1982"
+          }
+        },
+        {
+          key: {
+            text: "NHS number:"
+          },
+          value: {
+            text: "123 456 7890"
+          }
+        }
+      ]
+    }) }}
+
+
+
+
+
+
+          <div class="nhs-app-panel-heading">
+            <h2 class="nhsuk-heading-m">Featured services</h2>
+          </div>
+
+        <ul class="list-menu nhsuk-u-padding-bottom-4">
+          
+          <li>
+            <a class="desktop" href="/app/covid-status/status-service-v4/agree-to-share" onclick="p5_status=False">Get your NHS COVID Pass
+            </a>
+          </li>
+
+          <li>
+            <a class="desktop" href="/app/share-result-lateral-flow/interrupt" >Report a COVID-19 rapid lateral flow test result
+            </a>
+          </li>
+
+          <li class="nhs-app-message__item--unread-home">
+            <a class="desktop" href='{{ data["routeMessaging"] if data ["routeMessaging"] else "/app/messaging/v3/?messagingIcon=False&messageRead1=unread&pkbMessaging=False" }}'>
+              View your messages
+                {% if (data['messageRead7'] == "unread") %}
+                <span class="nhs-app-message__meta">
+                  <span class="nhsuk-u-visually-hidden">You have </span>
+                  <span class="nhs-app-message__count-red-home"></span>
+                  <span class="nhs-app-message__unread nhsuk-u-visually-hidden">
+                    unread messages
+                  </span>
+                </span>
+                {% endif %}
+
+            </a>
+          </li>
+
+
+
+
+            </ul>
+
+
+    </div>
+  </div>
+
+
+
+
+
+
+{% endblock %}
