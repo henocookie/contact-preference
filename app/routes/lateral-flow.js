@@ -19,12 +19,12 @@ router.post('/app/share-result-lateral-flow/nhs-styles/did-you-take-this-test-fo
 // Taken test for job? - GOV styles
 
 router.post('/app/share-result-lateral-flow/did-you-take-this-test-for-your-job-gov', function (req, res) {
-  let answer = req.body.takeTestForJob;
-  if (answer === 'Yes') {
+  let answer = req.body.testForWork;
+  if (answer === 'yes') {
     res.redirect('/app/share-result-lateral-flow/about-work')
   }
-  if (answer === 'No') {
-    res.redirect('/app/share-result-lateral-flow/test-reason')
+  if (answer === 'no') {
+    res.redirect('/app/share-result-lateral-flow/test-date')
   } else {
     res.redirect('/app/share-result-lateral-flow/did-you-take-this-test-for-your-job-gov')
   }
