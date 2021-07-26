@@ -1,0 +1,73 @@
+{% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
+{% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
+{% set contentTitle = "When was the test taken?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-gov.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
+  </div>
+</nav>
+{% include "./_parts/silver-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="barcode" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-2">
+              {{ contentTitle }}
+            </h1>
+          </legend>
+          <div class="govuk-inset-text">
+            Report a result as soon as possible on the day the test is taken (and no later than 24 hours).
+          </div>
+          <span id="swab-test-date-2-hint" class="govuk-body">
+            <strong>Select a date</strong>
+          </span>
+          <div class="govuk-radios govuk-radios--conditional govuk-!-margin-top-6" data-module="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="swab-test-date-1" name="swab-test-date" type="radio" value="20 October 2020" {{ checked("swab-test-date", "20 October 2020") }}>
+              <label class="govuk-label govuk-radios__label" for="swab-test-date-1">
+                Today, 21 June 2021
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="swab-test-date-2" name="swab-test-date" type="radio" value="21 October 2020" {{ checked("swab-test-date", "21 October 2020") }}>
+              <label class="govuk-label govuk-radios__label" for="swab-test-date-2">
+                Yesterday, 20 June 2021
+              </label>
+            </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+{% endblock %}

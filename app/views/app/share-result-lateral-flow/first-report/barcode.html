@@ -1,0 +1,90 @@
+{% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
+{% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
+{% set contentTitle = "What’s the test strip ID number?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-gov.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
+  </div>
+</nav>
+{% include "./_parts/silver-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="check-answers" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="enter-barcode-number-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-6">
+              {{ contentTitle }}
+            </h1>
+          </legend>
+      
+          <span id="enter-barcode-number-hint" class="govuk-body">
+            The ID number is printed on the test strip (near the QR code)
+          </span>
+      
+           <details class="govuk-details govuk-!-margin-top-6" data-module="govuk-details">
+             <summary class="govuk-details__summary">
+               <span class="govuk-details__summary-text">
+                 What does a test strip ID or QR code look like?
+               </span>
+             </summary>
+             <div class="govuk-details__text">
+                 <img width="100%" src="/images/new-LFD-strip.png" alt="An example ID number printed on the test strip next to the QR code"/>
+             </div>
+           </details>
+           <br>
+      
+          <a href="scan-barcode" role="button" draggable="false" class="govuk-button govuk-button--secondary" data-module="govuk-button">
+             Scan test strip QR code
+           </a>
+      
+           <div class="govuk-form-group">
+             <label class="govuk-label" for="kit-barcode-reference-1">
+               Test strip ID number
+             </label>
+             <input class="govuk-input govuk-!-width-two-thirds" id="kit-barcode-reference-1" name="kit-barcode-reference-1" type="text" value={{ data['kit-barcode-reference-1'] }}>
+           </div>
+      
+           <div class="govuk-form-group">
+             <label class="govuk-label" for="kit-barcode-reference-2">
+               Confirm test strip ID number
+             </label>
+             <input class="govuk-input govuk-!-width-two-thirds" id="kit-barcode-reference-2" name="kit-barcode-reference-2" type="text" value={{ data['kit-barcode-reference-2'] }}>
+           </div>
+      
+          </fieldset>
+        </div>
+      
+          <button class="govuk-button" data-module="govuk-button">Continue</button>
+      
+
+      </form>
+
+  </div>
+{% endblock %}

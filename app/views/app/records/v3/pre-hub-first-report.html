@@ -7,7 +7,7 @@
 {% endblock %}
 
 <!-- Extends the layout from /app/views/layouts/layout.html -->
-{% extends 'layouts/layout-app-new.html' %}
+{% extends 'layouts/layout-app-first-report.html' %}
 
 <!-- Set the page title inside this block -->
 {% block pageTitle %}
@@ -19,7 +19,7 @@
 <nav class="nhsuk-breadcrumb nhs-app-breadcrumb nhs-app-desktop--show" aria-label="Breadcrumb">
   <div class="nhsuk-width-container">
     <ol class="nhsuk-breadcrumb__list">
-      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='{{ data["routeHome"] if data ["routeHome"] else "/app/v8" }}'>Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href='/app/v8/index-first-report'>Home</a></li>
     </ol>
   </div>
 </nav>
@@ -36,7 +36,7 @@
 
 
         <li>
-          <a href="covid19-services-hub">
+          <a href="covid19-services-hub-first-report">
             <h2 class="nhsuk-heading-s">COVID-19 services</h2>
               <p>View your COVID Pass, check your vaccine record and report a rapid lateral flow test result</p>
           </a>
