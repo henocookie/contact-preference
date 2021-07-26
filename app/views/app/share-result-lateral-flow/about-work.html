@@ -34,7 +34,7 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form method="post">
+    <form action="about-work" method="post">
 
       <h1 class="govuk-heading-l govuk-!-margin-bottom-6">{{ contentTitle }}</h1>
 
@@ -42,8 +42,8 @@
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset" aria-describedby="about-work">
           <div class="govuk-radios__item">
-            <input class="govuk-radios__input" id="about-work-4" name="about-work" type="radio" value="/share-result-lateral-flow/{{version}}/sign-in-short/test-date" onclick="setLocation(this);"  {{ checked("about-work-4", "It’s for a social care service") }}>
-            <label class="govuk-label govuk-radios__label" for="about-work-4">
+            <input class="govuk-radios__input" id="aboutWorkSocialCare" name="aboutWork" type="radio" value="It’s for a social care service" {{ checked("about-work-4", "It’s for a social care service") }}>
+            <label class="govuk-label govuk-radios__label" for="aboutWorkSocialCare">
               <strong>It’s for a social care service</strong>
               <span id="about-work-hint" class="govuk-hint" style="color: #000000;">
                 This includes domiciliary care, care homes, extra care, supported living, children’s homes and day care centres
@@ -52,8 +52,8 @@
           </div>
           <div class="govuk-radios">
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="about-work-1" name="about-work" type="radio" value="/share-result-lateral-flow/{{version}}/sign-in-short/test-date" onclick="setLocation(this);"  {{ checked("about-work-1", "It’s for a college, school or nursery") }}>
-              <label class="govuk-label govuk-radios__label" for="about-work-1">
+              <input class="govuk-radios__input" id="aboutWorkEducationProvidor" name="aboutWork" type="radio" value="It’s for an education provider" {{ checked("about-work-1", "It’s for a college, school or nursery") }}>
+              <label class="govuk-label govuk-radios__label" for="aboutWorkEducationProvidor">
                 <strong>It’s for an education provider</strong>
                 <span id="about-work-hint" class="govuk-hint" style="color: #000000;">
                   For example a nursery, school, college, university, childcare provider, childminder or other education provider
@@ -61,8 +61,8 @@
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="about-work-2" name="about-work" type="radio" value="/share-result-lateral-flow/{{version}}/sign-in-short/test-date" onclick="setLocation(this);"  {{ checked("about-work-2", "It’s for the NHS in England or Northern Ireland") }}>
-              <label class="govuk-label govuk-radios__label" for="about-work-2">
+              <input class="govuk-radios__input" id="aboutWorkNHS" name="aboutWork" type="radio" value="It’s for the NHS in England, Northern Ireland or Wales" {{ checked("about-work-2", "It’s for the NHS in England or Northern Ireland") }}>
+              <label class="govuk-label govuk-radios__label" for="aboutWorkNHS">
                 <strong>It’s for the NHS in England, Northern Ireland or Wales</strong>
                 <span id="about-work-hint" class="govuk-hint" style="color: #000000;">
                   This does not include independent health providers
@@ -70,8 +70,8 @@
               </label>
             </div>
             <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="about-work-5" name="about-work" type="radio" value="/share-result-lateral-flow/{{version}}/sign-in-short/employee-wtp" onclick="setLocation(this);"  {{ checked("about-work-5", "It’s not listed") }}>
-              <label class="govuk-label govuk-radios__label" for="about-work-5">
+              <input class="govuk-radios__input" id="aboutWorkNotListed" name="aboutWork" type="radio" value="It’s not listed" {{ checked("about-work-5", "It’s not listed") }}>
+              <label class="govuk-label govuk-radios__label" for="aboutWorkNotListed">
                 <strong>It’s not listed</strong>
               </label>
             </div>
