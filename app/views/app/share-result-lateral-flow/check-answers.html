@@ -35,7 +35,7 @@
   <div class="govuk-grid-column-two-thirds-from-desktop">
 
     <h1 class="govuk-heading-l govuk-!-margin-bottom-7">
-      {% if data['whos-taking-the-test'] == "someone-else" %}
+      {% if data['whos-taking-the-test'] == "Someone else" %}
       Check the answers for {{ data['first-name'] or "Pete" }} {{ data['last-name'] or "Smith" }}
       {% else %}
       {{ contentTitle }}
@@ -100,43 +100,13 @@
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
-          NHS setting
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['nhs-primary'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/nhs-primary">
-            Change
-            <span class="govuk-visually-hidden"> NHS setting</span>
-          </a>
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Work postcode
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {{ data['postcode'] }}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/postcode">
-            Change
-            <span class="govuk-visually-hidden"> work postcode</span>
-          </a>
-        </dd>
-      </div>
-
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
           Country
         </dt>
         <dd class="govuk-summary-list__value">
           {{ data['country'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/country">
+          <a href="where-in-the-uk-do-you-live-gov">
             Change
             <span class="govuk-visually-hidden">country of residence</span>
           </a>
@@ -150,7 +120,7 @@
           {{ data['swab-test-date'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/test-date">
+          <a href="test-date">
             Change
             <span class="govuk-visually-hidden">when was test taken</span>
           </a>
@@ -164,7 +134,7 @@
           {{ data['kit-barcode-reference-1'] }}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/barcode">
+          <a href="barcode">
             Change
             <span class="govuk-visually-hidden">test strip ID number</span>
           </a>
@@ -195,10 +165,10 @@
           Name
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['first-name'] }} {{ data['last-name'] }}
+          Betty Doyle
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/name">
+          <a href="">
             Change
             <span class="govuk-visually-hidden">name</span>
           </a>
@@ -209,10 +179,10 @@
           Date of birth
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['date-of-birth-day'] }} {{ data['date-of-birth-month'] }} {{ data['date-of-birth-year'] }}
+          20 September 1982
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/date-of-birth">
+          <a href="">
             Change
             <span class="govuk-visually-hidden">date of birth</span>
           </a>
@@ -226,9 +196,9 @@
           Female
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/gender">
+          <a href="">
             Change
-            <span class="govuk-visually-hidden">medical record</span>
+            <span class="govuk-visually-hidden">gender on medical record</span>
           </a>
         </dd>
       </div>
@@ -237,31 +207,29 @@
           Ethnic group
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['ethnic-group'] }}
+          Asian or Asian British
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/ethnic-group">
+          <a href="">
             Change
             <span class="govuk-visually-hidden">ethnic group</span>
           </a>
         </dd>
       </div>
-      {% if data['ethnic-group'] !== "Prefer not to say" %}
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Ethnic background
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['ethnic-background'] }}
+          Indian
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/ethnic-background">
+          <a href="">
             Change
             <span class="govuk-visually-hidden">ethnic background</span>
           </a>
         </dd>
       </div>
-      {% endif %}
 
       <!-- {% if data['do-you-have-symptoms'] == "Yes" %}
       <div class="govuk-summary-list__row">
@@ -285,11 +253,12 @@
           Address
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['address'] }}<br>
-          {{ data['home-postcode'] }}
+          72 Guild Street<br>
+          London<br>
+          SE23 6FH
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/address">
+          <a href="">
             Change
             <span class="govuk-visually-hidden">address</span>
           </a>
@@ -308,7 +277,7 @@
           {% endif %}
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/nhs-number-known">
+          <a href="">
             Change
             <span class="govuk-visually-hidden">NHS number known</span>
           </a>
@@ -319,61 +288,42 @@
           NHS number
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['nhs-number'] }}
+          123 456 7890
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/nhs-number">
+          <a href="">
             Change
             <span class="govuk-visually-hidden">NHS number</span>
           </a>
         </dd>
       </div>
 
-      {% if data['email'] == "Yes" %}
+
+      
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Email
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['email-address'] }}
+          betty.doyle@hotmail.com
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/got-email">
+          <a href="">
             Change
             <span class="govuk-visually-hidden">email address</span>
           </a>
         </dd>
       </div>
-      {% elseif data['email'] !== "Yes" %}
-      <div class="govuk-summary-list__row">
-        <dt class="govuk-summary-list__key">
-          Email
-        </dt>
-        <dd class="govuk-summary-list__value">
-          {% if data['whos-taking-the-test'] == "someone-else" %}
-          They do not have an email address
-          {% else %}
-          I do not have an email address
-          {% endif %}
-        </dd>
-        <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/got-email">
-            Change
-            <span class="govuk-visually-hidden">email address</span>
-          </a>
-        </dd>
-      </div>
-      {% endif %}
 
       <div class="govuk-summary-list__row">
         <dt class="govuk-summary-list__key">
           Mobile
         </dt>
         <dd class="govuk-summary-list__value">
-          {{ data['mobile-phone-number'] }}
+          07123 456 789
         </dd>
         <dd class="govuk-summary-list__actions">
-          <a href="/share-result-lateral-flow/{{version}}/mobile-number">
+          <a href="">
             Change
             <span class="govuk-visually-hidden">mobile</span>
           </a>
