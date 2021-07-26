@@ -1,0 +1,90 @@
+{% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
+{% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
+{% set contentTitle = "You reported a positive coronavirus test result" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-gov.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
+  </div>
+</nav>
+{% include "./_parts/silver-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="https://www.gov.uk/get-coronavirus-test/" target="blank" method="post">
+
+       
+      <div class="govuk-panel govuk-panel--confirmation govuk-panel-lft-result">
+        <h1 class="govuk-panel__title">
+          You reported a positive coronavirus test result
+        </h1>
+        <div class="govuk-panel__body">
+          It’s likely you were infectious when the test was done
+        </div>
+      </div>
+      <p class="govuk-body">This result has been reported to the NHS.</p>
+
+ <div>
+  <h3 class="govuk-heading-m">What you need to know</h3>
+  <p class="govuk-body">You must take a different follow-up test today, or as soon as possible.</p>
+  <p class="govuk-body">This will confirm if you are infectious to others, start contact tracing and
+    enable you to claim financial support if you are eligible.</p>
+  <p class="govuk-body">Follow the instructions you were given to take your follow-up test.
+    If you were not given instructions, book your test below (choose a test site if you can,
+    it’s faster than a home test).</p>
+ </div>
+
+  <div class="govuk-warning-text">
+    <span class="govuk-warning-text__icon" aria-hidden="true">!</span>
+    <strong class="govuk-warning-text__text">
+      <span class="govuk-warning-text__assistive">Warning</span>
+      Until you get further advice, you and everyone you live with must self-isolate immediately for 10 days. This includes the day of your test and the next 10 full days. You can leave home for your follow-up test.
+      Care home residents must self-isolate for 14 days.
+    </strong>
+  </div>
+
+
+    <button class="govuk-button" data-module="govuk-button">Book your follow-up test now</button>
+
+    <p class="govuk-body"><a href="who-are-you-reporting-for-gov" rel="noreferrer">Report another result</a>
+
+    <br>
+    <br>
+
+    <h5 class="govuk-heading-s">Help and advice</h5>
+    <p class="govuk-body"><a href="https://www.gov.uk/find-coronavirus-support" target="_blank" rel="noreferrer">Find out what support you can get if you’re affected by coronavirus</a></p>
+    <p class="govuk-body"><a href="https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-and-treatment/" target="_blank" rel="noreferrer">NHS advice if you have to self isolate</a>
+
+   <!--<h5 class="govuk-heading-s">Free contact tracing apps</h5>-->
+    <p class="govuk-body"><a href="https://www.covid19.nhs.uk/" target="_blank" rel="noreferrer">Get the free NHS COVID-19 app for England and Wales</a></p>
+    <p class="govuk-body"><a href="https://covid-19.hscni.net/stop-covid-ni-mobile-app/" target="_blank" rel="noreferrer">Get the free StopCOVID app for Northern Ireland</a></p>
+    <p class="govuk-body"><a href="https://protect.scot/" target="_blank" rel="noreferrer">Get the free Protect Scotland app</a></p>
+
+
+     </form>
+   </div>
+ </div>
+{% endblock %}

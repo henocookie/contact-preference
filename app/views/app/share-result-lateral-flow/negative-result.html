@@ -1,0 +1,85 @@
+{% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
+{% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
+{% set contentTitle = "You reported a negative coronavirus test result" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-gov.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
+  </div>
+</nav>
+{% include "./_parts/silver-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="who-are-you-reporting-for-gov" method="post">
+
+      <div class="govuk-panel govuk-panel--confirmation govuk-panel-lft-result">
+        <h1 class="govuk-panel__title">
+          You reported a negative coronavirus test result
+        </h1>
+        <div class="govuk-panel__body">
+          It’s likely you were not infectious when the test was done
+        </div>
+     </div>
+     <p class="govuk-body">This result has been reported to the NHS.</p>
+ 
+   <div>
+     <h2 class="govuk-heading-m">What you need to know</h2>
+ 
+       <p class="govuk-body">Keep following coronavirus advice including:</p>
+       <ul class="govuk-list govuk-list--bullet">
+         <li>regular handwashing</li>
+         <li>social distancing</li>
+         <li>wearing a face covering where recommended</li>
+       </ul>
+ 
+        <p class="govuk-body">You only need to self-isolate if:</p>
+        <ul class="govuk-list govuk-list--bullet">
+          <li>you get symptoms of coronavirus</li>
+          <li>someone you live with tests positive, or has symptoms and has not been tested yet</li>
+          <li>you've been traced as a contact of someone who tested positive</li>
+        </ul>
+ 
+      <br>
+      <button class="govuk-button" data-module="govuk-button">Report another test result</button>
+      <br>
+ 
+      <h3 class="govuk-heading-m">Help and advice</h3>
+        <p class="govuk-body"><a href="https://www.gov.uk/find-coronavirus-support" target="_blank" rel="noreferrer">Find out what support you can get if you’re affected by coronavirus</a></p>
+        <p class="govuk-body"><a href="https://www.nhs.uk/conditions/coronavirus-covid-19/self-isolation-and-treatment/" target="_blank" rel="noreferrer">NHS advice if you have to self isolate</a>
+        <p class="govuk-body"><a href="https://www.covid19.nhs.uk/" target="_blank" rel="noreferrer">Get the free NHS COVID-19 app for England and Wales</a></p>
+        <p class="govuk-body"><a href="https://covid-19.hscni.net/stop-covid-ni-mobile-app/" target="_blank" rel="noreferrer">Get the free StopCOVID app for Northern Ireland</a></p>
+        <p class="govuk-body"><a href="https://protect.scot/" target="_blank" rel="noreferrer">Get the free Protect Scotland app</a></p>
+ 
+   </div>
+ 
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}

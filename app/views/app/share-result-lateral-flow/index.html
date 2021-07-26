@@ -22,20 +22,20 @@
   <div class="nhsuk-grid-row">
     <div class="nhsuk-grid-column-two-thirds">
       <h1>
-        {{ contentTitle }} prototype
+        {{ contentTitle }} - prototype
       </h1>
 
       {% from 'action-link/macro.njk' import actionLink %}
 
       {{ actionLink({
-        "text": "Start latest prototype",
+        "text": "Start returning reporter prototype",
         "href": "/app/share-result-lateral-flow/iframe"
       }) }}
 
       <details class="nhsuk-details nhsuk-expander">
         <summary class="nhsuk-details__summary">
           <span class="nhsuk-details__summary-text">
-            Latest version screens
+            Returning reporter screens
           </span>
         </summary>
         <div class="nhsuk-details__text">
@@ -75,6 +75,85 @@
             </li>
             <li>
               <a href="/{{ PROTOTYPEURL }}/check-answers">Check the answers</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/choose-result">What's the result?</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/positive-result">Positive result</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/negative-result">Negative result</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/invalid-result">Invalid/void result</a>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <hr>
+
+      {{ actionLink({
+        "text": "(WIP) Start first time reporting prototype",
+        "href": "/app/share-result-lateral-flow/iframe-first-report"
+      }) }}
+
+      <details class="nhsuk-details nhsuk-expander">
+        <summary class="nhsuk-details__summary">
+          <span class="nhsuk-details__summary-text">
+            (WIP) First time reporting screens
+          </span>
+        </summary>
+        <div class="nhsuk-details__text">
+          <ul>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/first-report/interrupt">Third party service interrupt</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/first-report/nhs-login">Share NHS login information</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/first-report/who-are-you-reporting-for-gov">Who are you reporting a result for?</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/first-report/where-in-the-uk-do-you-live-gov">Where in the UK do you/they live?</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/first-report/did-you-take-this-test-for-your-job-gov">Did you/they take this test for your/their job?</a>
+            </li>
+            </ul>
+            <p>If test <strong>was taken</strong> for job:</p>
+            <ul>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/first-report/about-work">Tell us about the work</a>
+            </li>
+            </ul>
+            <hr>
+            <ul>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/first-report/test-date">When was the test taken?<a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/first-report/barcode">What’s the test strip ID number? (manual entry)</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/first-report/scan-barcode">What’s the test strip ID number? (camera entry)</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/first-report/check-answers">Check the answers</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/first-report/choose-result">What's the result?</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/first-report/positive-result">Positive result</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/first-report/negative-result">Negative result</a>
+            </li>
+            <li>
+              <a href="/{{ PROTOTYPEURL }}/first-report/invalid-result">Invalid/void result</a>
             </li>
           </ul>
         </div>
