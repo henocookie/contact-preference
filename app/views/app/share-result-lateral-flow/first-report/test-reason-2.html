@@ -1,0 +1,87 @@
+{% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
+{% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
+{% set contentTitle = "Tell us why you took the test (continued)" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-gov.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
+  </div>
+</nav>
+{% include "./_parts/silver-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="test-reason-2" method="post">
+
+      <h1 class="govuk-heading-l govuk-!-margin-bottom-6">{{ contentTitle }}</h1>
+
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="about-work">
+          <div class="govuk-radios">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="testReason2-1" name="testReason2" type="radio" value="A community organisation provided the test and a Community Number" {{ checked("test-reason-2-1", "care home or hospice") }}>
+              <label class="govuk-label govuk-radios__label" for="testReason2-1">
+                A community organisation provided the test and a Community Number
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="testReason2-2" name="testReason2" type="radio" value="For visiting someone who gets care or support from social care services" {{ checked("test-reason-2-2", "care home or hospice") }}>
+              <label class="govuk-label govuk-radios__label" for="testReason2-2">
+                For visiting someone who gets care or support from social care services
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="testReason2-4" name="testReason2" type="radio" value="For getting care or support from social care services" {{ checked("test-reason-2-4", "Scottish Isles") }}>
+              <label class="govuk-label govuk-radios__label" for="testReason2-4">
+                For getting care or support from social care services
+              </label>
+            </div>
+            <!-- <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="testReason2-5" name="testReason2" type="radio" value="So I can travel to the Scottish Isles" {{ checked("test-reason-2-5", "Scottish Isles") }}>
+              <label class="govuk-label govuk-radios__label" for="testReason2-5">
+                So I can travel to the Scottish Isles
+              </label>
+            </div> -->
+
+
+            <div class="govuk-radios__divider">or</div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="testReason2-6" name="testReason2" type="radio" value="Another reason - not listed" {{ checked("test-reason-2-6", "Another reason") }}>
+              <label class="govuk-label govuk-radios__label" for="testReason2-6">
+                Another reason - not listed
+              </label>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+      </form>
+
+  </div>
+{% endblock %}

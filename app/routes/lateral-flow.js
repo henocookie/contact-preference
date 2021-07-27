@@ -39,9 +39,52 @@ router.post('/app/share-result-lateral-flow/first-report/did-you-take-this-test-
     res.redirect('/app/share-result-lateral-flow/first-report/about-work')
   }
   if (answer === 'no') {
-    res.redirect('/app/share-result-lateral-flow/first-report/test-date')
+    res.redirect('/app/share-result-lateral-flow/first-report/test-reason')
   } else {
     res.redirect('/app/share-result-lateral-flow/first-report/did-you-take-this-test-for-your-job-gov')
+  }
+});
+
+// Tell us why you took the test (first report) - GOV styles
+
+router.post('/app/share-result-lateral-flow/first-report/test-reason', function (req, res) {
+  let answer = req.body.testReason;
+  if (answer === 'To go to school, college or university') {
+    res.redirect('/app/share-result-lateral-flow/first-report/school-name')
+  }
+  if (answer === 'Someone in the household goes to school or college') {
+    res.redirect('/app/share-result-lateral-flow/first-report/school-name')
+  }
+  if (answer === 'As someone in a support or childcare bubble of a student') {
+    res.redirect('/app/share-result-lateral-flow/first-report/school-name')
+  }
+  if (answer === 'As a foster carer') {
+    res.redirect('/app/share-result-lateral-flow/first-report/test-date')
+  }
+  if (answer === 'Another reason') {
+    res.redirect('/app/share-result-lateral-flow/first-report/test-reason-2')
+  } else {
+    res.redirect('/app/share-result-lateral-flow/first-report/test-reason')
+  }
+});
+
+// Tell us why you took the test (continued) (first report) - GOV styles
+
+router.post('/app/share-result-lateral-flow/first-report/test-reason-2', function (req, res) {
+  let answer = req.body.testReason2;
+  if (answer === 'A community organisation provided the test and a Community Number') {
+    res.redirect('/app/share-result-lateral-flow/first-report/urg-number')
+  }
+  if (answer === 'For visiting someone who gets care or support from social care services') {
+    res.redirect('/app/share-result-lateral-flow/first-report/social-care-uon')
+  }
+  if (answer === 'For getting care or support from social care services') {
+    res.redirect('/app/share-result-lateral-flow/first-report/social-care-uon')
+  }
+  if (answer === 'Another reason - not listed') {
+    res.redirect('/app/share-result-lateral-flow/first-report/test-date')
+  } else {
+    res.redirect('/app/share-result-lateral-flow/first-report/test-reason-2')
   }
 });
 
