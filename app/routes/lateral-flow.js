@@ -24,7 +24,7 @@ router.post('/app/share-result-lateral-flow/did-you-take-this-test-for-your-job-
     res.redirect('/app/share-result-lateral-flow/about-work')
   }
   if (answer === 'no') {
-    res.redirect('/app/share-result-lateral-flow/test-date')
+    res.redirect('/app/share-result-lateral-flow/test-reason')
   } else {
     res.redirect('/app/share-result-lateral-flow/did-you-take-this-test-for-your-job-gov')
   }
@@ -42,6 +42,29 @@ router.post('/app/share-result-lateral-flow/first-report/did-you-take-this-test-
     res.redirect('/app/share-result-lateral-flow/first-report/test-reason')
   } else {
     res.redirect('/app/share-result-lateral-flow/first-report/did-you-take-this-test-for-your-job-gov')
+  }
+});
+
+// Tell us why you took the test (return reporter) - GOV styles
+
+router.post('/app/share-result-lateral-flow/test-reason', function (req, res) {
+  let answer = req.body.testReason;
+  if (answer === 'To go to school, college or university') {
+    res.redirect('/app/share-result-lateral-flow/school-name')
+  }
+  if (answer === 'Someone in the household goes to school or college') {
+    res.redirect('/app/share-result-lateral-flow/school-name')
+  }
+  if (answer === 'As someone in a support or childcare bubble of a student') {
+    res.redirect('/app/share-result-lateral-flow/school-name')
+  }
+  if (answer === 'As a foster carer') {
+    res.redirect('/app/share-result-lateral-flow/test-date')
+  }
+  if (answer === 'Another reason') {
+    res.redirect('/app/share-result-lateral-flow/test-reason-2')
+  } else {
+    res.redirect('/app/share-result-lateral-flow/test-reason')
   }
 });
 
@@ -65,6 +88,26 @@ router.post('/app/share-result-lateral-flow/first-report/test-reason', function 
     res.redirect('/app/share-result-lateral-flow/first-report/test-reason-2')
   } else {
     res.redirect('/app/share-result-lateral-flow/first-report/test-reason')
+  }
+});
+
+// Tell us why you took the test (continued) (return reporter) - GOV styles
+
+router.post('/app/share-result-lateral-flow/test-reason-2', function (req, res) {
+  let answer = req.body.testReason2;
+  if (answer === 'A community organisation provided the test and a Community Number') {
+    res.redirect('/app/share-result-lateral-flow/urg-number')
+  }
+  if (answer === 'For visiting someone who gets care or support from social care services') {
+    res.redirect('/app/share-result-lateral-flow/social-care-uon')
+  }
+  if (answer === 'For getting care or support from social care services') {
+    res.redirect('/app/share-result-lateral-flow/social-care-uon')
+  }
+  if (answer === 'Another reason - not listed') {
+    res.redirect('/app/share-result-lateral-flow/test-date')
+  } else {
+    res.redirect('/app/share-result-lateral-flow/test-reason-2')
   }
 });
 

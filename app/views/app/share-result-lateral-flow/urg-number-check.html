@@ -1,0 +1,100 @@
+{% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
+{% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
+{% set contentTitle = "These are the details for the Community Number" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-gov.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
+  </div>
+</nav>
+{% include "./_parts/silver-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="test-date" method="post">
+
+      <div class="govuk-form-group">
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-6">
+              {{ contentTitle }}
+            </h1>
+
+            <span id="enter-barcode-number-hint" class="govuk-body">
+              <div class="govuk-inset-text">
+                    <dl class="govuk-summary-list">
+                      <div class="govuk-summary-list__row">
+                        <dt class="govuk-summary-list__key">
+                          Name
+                        </dt>
+                        <dd class="govuk-summary-list__value">
+                          SARSVL Leeds
+                        </dd>
+                      </div>
+                       <div class="govuk-summary-list__row">
+                         <dt class="govuk-summary-list__key">
+                           Postcode
+                         </dt>
+                         <dd class="govuk-summary-list__value">
+                           LS1 2AA
+                         </dd>
+                       </div>
+                       <div class="govuk-summary-list__row">
+                         <dt class="govuk-summary-list__key">
+                           Community Number
+                         </dt>
+                         <dd class="govuk-summary-list__value">
+                           B12345678
+                         </dd>
+                       </div>
+                      <!-- <p>SW1 5NN</p> -->
+                    </dl>
+                 </div>
+             </span>
+
+             <details class="govuk-details govuk-!-margin-top-6" data-module="govuk-details">
+               <summary class="govuk-details__summary">
+                 <span class="govuk-details__summary-text">
+                   If these details are not correct
+                 </span>
+               </summary>
+               <div class="govuk-details__text">
+                   <p class="govuk-body">You can <a href="urg-number">go back and re-enter the Community Number</a>.
+                     <p class="govuk-body">
+                        {% if data['whos-taking-the-test'] == "someone-else" %}
+                        If they still need help, call 119 (free from mobiles and landlines). Lines are open 7am to 11pm.
+                        {% else %}
+                        If you still need help, call 119 (free from mobiles and landlines). Lines are open 7am to 11pm.
+                        {% endif %}</p>
+               </div>
+             </details>
+
+        </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+{% endblock %}
