@@ -1,0 +1,88 @@
+{% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
+{% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
+{% set contentTitle = "Which one best describes your Another ethnic group background?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-gov.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
+  </div>
+</nav>
+{% include "./_parts/silver-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form class="form" action="address" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="ethnic-background-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
+              {% if data['whos-taking-the-test'] == "Someone else" %}
+              Which one best describes {{ data['first-name'] or "Pete" }} {{ data['last-name'] or "Smith" }}'s ethnic background?
+              {% else %}
+              {{ contentTitle }}
+              {% endif %}
+            </h1>
+          </legend>
+          <span id="ethnic-background-hint" class="govuk-body">
+            <!-- If you’re reporting a result for someone else, answer for them.
+          <br><br> -->
+            This will help us understand how coronavirus is affecting people of different ethnic backgrounds.
+          </span>
+          <div class="govuk-radios govuk-!-margin-top-6">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ethnic-background-1" name="ethnic-background" type="radio" value="Arab" {{ checked("ethnic-background", "Arab") }}>
+              <label class="govuk-label govuk-radios__label" for="ethnic-background-1">
+                Arab
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ethnic-background-2" name="ethnic-background" type="radio" value="Another ethnic background" {{ checked("ethnic-background", "Another ethnic background") }}>
+              <label class="govuk-label govuk-radios__label" for="ethnic-background-2">
+                Another ethnic background
+              </label>
+            </div>
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ethnic-background-3" name="ethnic-background" type="radio" value="Prefer not to say" {{ checked("ethnic-background", "Prefer not to say") }}>
+              <label class="govuk-label govuk-radios__label" for="ethnic-background-3">
+                Prefer not to say
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

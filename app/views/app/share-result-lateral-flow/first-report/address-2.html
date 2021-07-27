@@ -1,0 +1,92 @@
+{% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
+{% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
+{% set contentTitle = "What is your home address?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-gov.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
+  </div>
+</nav>
+{% include "./_parts/silver-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="nhs-number-known" method="post">
+
+      <fieldset class="govuk-fieldset">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-fieldset__heading govuk-!-margin-bottom-5">
+            {% if data['whos-taking-the-test'] == "someone-else" %}
+            What is {{ data['first-name'] or "Pete" }} {{ data['last-name'] or "Smith" }}'s home address?
+            {% else %}
+            {{ contentTitle }}
+            {% endif %}
+          </h1>
+        </legend>
+        <label class="govuk-label" for="postcode">
+          Postcode
+        </label>
+        <p class="govuk-body">
+        <strong class="govuk-!-font-size-24">  {{ data['home-postcode'] | default('LS1 3BE') }}LS1 3BE </strong>
+          <a href="address" class="govuk-!-margin-left-5">
+            Change
+            <span class="govuk-visually-hidden">your postcode</span>
+          </a>
+        </p><br>
+
+        <div class="govuk-form-group">
+          <label class="govuk-label" for="home-address">
+            Select an address
+          </label>
+          <select class="govuk-select" id="home-address" name="home-address">
+            <option>Select from 5 addresses</option>
+            <option value="1 Souterhead Road, London, {{ data['home-postcode'] or 'LS1 3BE' }}">1 Souterhead Road, London, {{ data['home-postcode'] or 'LS1 3BE' }}</option>
+            <option value="2 Souterhead Road, London, {{ data['home-postcode'] or 'LS1 3BE' }}">2 Souterhead Road, London, {{ data['home-postcode'] or 'LS1 3BE' }}</option>
+            <option value="3 Souterhead Road, London, {{ data['home-postcode'] or 'LS1 3BE' }}">3 Souterhead Road, London, {{ data['home-postcode'] or 'LS1 3BE' }}</option>
+            <option value="4 Souterhead Road, London, {{ data['home-postcode'] or 'LS1 3BE' }}">4 Souterhead Road, London, {{ data['home-postcode'] or 'LS1 3BE' }}</option>
+            <option value="5 Souterhead Road, London, {{ data['home-postcode'] or 'LS1 3BE' }}">5 Souterhead Road, London, {{ data['home-postcode'] or 'LS1 3BE' }}</option>
+          </select>
+        </div>
+
+      </fieldset>
+
+      <p class="govuk-body"><a href="address-manual">
+        {% if data['whos-taking-the-test'] == "someone-else" %}
+        I can't find their address on the list
+        {% else %}
+        I can't find my address on the list
+        {% endif %}
+        </a></p>
+
+      <button class="govuk-button" type="submit" data-module="govuk-button">
+        Continue
+      </button>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

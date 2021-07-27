@@ -1,0 +1,87 @@
+{% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
+{% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
+{% set contentTitle = "Do you know your NHS number?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-gov.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
+  </div>
+</nav>
+{% include "./_parts/silver-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="nhs-number-known" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="nhs-number-known-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
+              {% if data['whos-taking-the-test'] == "Someone else" %}
+              Do you know {{ data['first-name'] or "Pete" }} {{ data['last-name'] or "Smith" }}'s NHS number?
+              {% else %}
+              {{ contentTitle }}
+              {% endif %}
+            </h1>
+          </legend>
+          <span id="nhs-number-known-hint" class="govuk-body">
+            <strong>It’s OK if you do not, you can still continue.</strong><br><br>
+            It’s 10 digits long, and usually on prescriptions or a hospital or GP letter.<br><br>
+            In Scotland, it’s known as a CHI number. In Northern Ireland, it’s known as an H&C number.
+          </span>
+          <p class="govuk-!-margin-top-5"><a href="https://www.nhs.uk/using-the-nhs/about-the-nhs/what-is-an-nhs-number/">How to find an NHS number</a></p>
+          <div class="govuk-radios govuk-radios--conditional" data-module="govuk-radios">
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nhsNumberKnown1" name="nhsNumberKnown" type="radio" value="Yes" {{ checked("nhs-number-known", "Yes") }}>
+                <label class="govuk-label govuk-radios__label" for="nhsNumberKnown1">
+                  {% if data['whos-taking-the-test'] == "Someone else" %}
+                  Yes, I know their NHS number
+                  {% else %}
+                  Yes, I know my NHS number
+                  {% endif %}
+                </label>
+              </div>
+              <div class="govuk-radios__item">
+                <input class="govuk-radios__input" id="nhsNumberKnown2" name="nhsNumberKnown" type="radio" value="No" {{ checked("nhs-number-known", "No") }}>
+                <label class="govuk-label govuk-radios__label" for="nhsNumberKnown2">
+                  {% if data['whos-taking-the-test'] == "Someone else" %}
+                  No, I do not know their NHS number
+                  {% else %}
+                  No, I do not know my NHS number
+                  {% endif %}
+                </label>
+              </div>
+            </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

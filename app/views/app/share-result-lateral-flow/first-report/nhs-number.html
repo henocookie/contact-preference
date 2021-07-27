@@ -1,0 +1,66 @@
+{% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
+{% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
+{% set contentTitle = "What's your NHS number?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-gov.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
+  </div>
+</nav>
+{% include "./_parts/silver-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="got-email" method="post">
+
+      <fieldset class="govuk-fieldset" aria-describedby="nhs-number-hint">
+        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+          <h1 class="govuk-heading-l govuk-!-margin-bottom-3">
+            {% if data['whos-taking-the-test'] == "Someone else" %}
+            What's {{ data['first-name'] or "Pete" }} {{ data['last-name'] or "Smith" }}'s NHS number?
+            {% else %}
+            {{ contentTitle }}
+            {% endif %}
+          </h1>
+        </legend>
+        <span id="nhs-number-hint" class="govuk-body">
+          An NHS number is a 10 digit number. Please enter the number with no spaces, for example 8674065600.
+        </span>
+        <div class="govuk-form-group govuk-!-margin-top-5">
+          <label class="govuk-label" for="nhs-number">
+            NHS number
+          </label>
+          <input class="govuk-input govuk-input--width-10" id="nhs-number" name="nhs-number" type="text" value="{{ data['nhs-number'] }}">
+        </div>
+      </fieldset>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

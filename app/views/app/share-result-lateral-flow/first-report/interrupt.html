@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
 {% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
-{% set contentTitle = "The service is provided by NHS Test and Trace" %}
+{% set contentTitle = "The service is provided by GOV.UK" %}
 {% if data['appts'] == 'True' %}
 {% set appointmentsActive = "active" %}
 {% elif data['advice'] == 'True' %}
@@ -46,12 +46,12 @@
               <span class="app-interruption__caption nhsuk-caption-m nhsuk-caption--top">Report a COVID-19 rapid lateral flow test result</span>
               {{ contentTitle }}
             </h1>
-            <p>COVID-19 rapid lateral flow test results are collected by NHS Test and Trace.</p>
+            <p>COVID-19 rapid lateral flow test results are collected by GOV.UK</p>
             <form action="/{{ PROTOTYPEURL }}/first-report/nhs-login" method="post">
               <input type="submit" class="nhsuk-button nhsuk-button--reverse" value="Continue">
             </form>
             <p>
-              <a href="https://www.gov.uk/government/publications/coronavirus-covid-19-testing-privacy-information">Find out how NHS Test and Trace uses your data</a>
+              <a href="https://www.gov.uk/government/publications/coronavirus-covid-19-testing-privacy-information">Find out how GOV.UK uses your data</a>
             </p>
 
           </div>

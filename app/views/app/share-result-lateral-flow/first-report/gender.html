@@ -1,6 +1,6 @@
 {% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
 {% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
-{% set contentTitle = "When was the test taken?" %}
+{% set contentTitle = "Which of the following is on your medical records?" %}
 {% set title = contentTitle + " - " + serviceName %}
 {% block pageScripts %}
 {% endblock %}
@@ -34,34 +34,38 @@
 <div class="govuk-grid-row">
   <div class="govuk-grid-column-two-thirds">
 
-    <form action="barcode" method="post">
+    <form action="ethnic-group" method="post">
 
       <div class="govuk-form-group">
         <fieldset class="govuk-fieldset">
           <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
-            <h1 class="govuk-heading-l govuk-!-margin-bottom-2">
-              {{ contentTitle }}
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-6">
+              Which of the following is on your medical records?
             </h1>
           </legend>
-          <div class="govuk-inset-text">
-            Report a result as soon as possible on the day the test is taken (and no later than 24 hours).
+          <span id="name-hint" class="govuk-body">
+            We are asking this question so in future, your result can be saved to your GP record.
+      </span>
+          <div class="govuk-radios govuk-!-margin-top-5">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="gender-1" name="gender" type="radio" value="Female" {{ checked("gender", "Female") }}>
+              <label class="govuk-label govuk-radios__label" for="gender-1">
+                Female
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="gender-2" name="gender" type="radio" value="Male" {{ checked("gender", "Male") }}>
+              <label class="govuk-label govuk-radios__label" for="gender-2">
+                Male
+              </label>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="gender-3" name="gender" type="radio" value="Other / Not specified / I do not know" {{ checked("gender", "Other / Not specified / I do not know") }}>
+              <label class="govuk-label govuk-radios__label" for="gender-3">
+                Other / Not specified / I do not know
+              </label>
+            </div>
           </div>
-          <span id="swab-test-date-2-hint" class="govuk-body">
-            <strong>Select a date</strong>
-          </span>
-          <div class="govuk-radios govuk-radios--conditional govuk-!-margin-top-6" data-module="govuk-radios">
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="swab-test-date-1" name="swab-test-date" type="radio" value="27 July 2021" {{ checked("swab-test-date", "27 July 2021") }}>
-              <label class="govuk-label govuk-radios__label" for="swab-test-date-1">
-                Today, 27 July 2021
-              </label>
-            </div>
-            <div class="govuk-radios__item">
-              <input class="govuk-radios__input" id="swab-test-date-2" name="swab-test-date" type="radio" value="26 July 2021" {{ checked("swab-test-date", "26 July 2021") }}>
-              <label class="govuk-label govuk-radios__label" for="swab-test-date-2">
-                Yesterday, 26 July 2021
-              </label>
-            </div>
         </fieldset>
       </div>
 
@@ -70,4 +74,5 @@
     </form>
 
   </div>
+</div>
 {% endblock %}

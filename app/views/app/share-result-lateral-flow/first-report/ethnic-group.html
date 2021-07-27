@@ -1,0 +1,120 @@
+{% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
+{% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
+{% set contentTitle = "What is your ethnic group?" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% block pageScripts %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-gov.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
+  </div>
+</nav>
+{% include "./_parts/silver-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds">
+
+    <form action="ethnic-group" method="post">
+
+      <div class="govuk-form-group">
+        <fieldset class="govuk-fieldset" aria-describedby="ethnic-group-hint">
+          <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+            <h1 class="govuk-heading-l govuk-!-margin-bottom-6">
+              {% if data['whos-taking-the-test'] == "Someone else" %}
+              What is {{ data['first-name'] or "Pete" }} {{ data['last-name'] or "Smith" }}'s ethnic group?
+              {% else %}
+              {{ contentTitle }}
+              {% endif %}
+            </h1>
+          </legend>
+          <span id="ethnic-group-hint" class="govuk-body">
+            <!-- If you’re reporting a result for someone else, answer for them. -->
+            This will help us understand how coronavirus is affecting people of different ethnic backgrounds.
+          </span>
+          <div class="govuk-radios govuk-!-margin-top-6">
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ethnicGroup1" name="ethnicGroup" type="radio" value="Asian or Asian British" {{ checked("ethnic-group", "Asian or Asian British") }} aria-describedby="asian-british-hint">
+              <label class="govuk-label govuk-radios__label" for="ethnicGroup1">
+                <strong>Asian or Asian British</strong>
+              </label>
+              <span id="asian-british-hint" class="govuk-hint govuk-radios__hint">
+                Includes any Asian background, for example, Bangladeshi, Chinese, Indian, Pakistani or other East or South Asian
+              </span>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ethnicGroup2" name="ethnicGroup" type="radio" value="Black, African, Black British or Caribbean" {{ checked("ethnic-group", "Black, African, Black British or Caribbean") }} aria-describedby="black-african-black-british-caribbean-hint">
+              <label class="govuk-label govuk-radios__label" for="ethnicGroup2">
+                <strong>Black, African, Black British or Caribbean</strong>
+              </label>
+              <span id="black-african-black-british-caribbean-hint" class="govuk-hint govuk-radios__hint">
+                Includes any Black background
+              </span>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ethnicGroup3" name="ethnicGroup" type="radio" value="Mixed or multiple ethnic groups" {{ checked("ethnic-group", "Mixed or multiple ethnic groups") }} aria-describedby="mixed-hint">
+              <label class="govuk-label govuk-radios__label" for="ethnicGroup3">
+                <strong>Mixed or multiple ethnic groups</strong>
+              </label>
+              <span id="mixed-hint" class="govuk-hint govuk-radios__hint">
+                Includes any Mixed background
+              </span>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ethnicGroup4" name="ethnicGroup" type="radio" value="White" {{ checked("ethnic-group", "White") }} aria-describedby="white-hint">
+              <label class="govuk-label govuk-radios__label" for="ethnicGroup4">
+                <strong>White</strong>
+              </label>
+              <span id="white-hint" class="govuk-hint govuk-radios__hint">
+                Includes any White background
+              </span>
+            </div>
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ethnicGroup5" name="ethnicGroup" type="radio" value="Another ethnic group" {{ checked("ethnic-group", "Another ethnic group") }} aria-describedby="other-hint">
+              <label class="govuk-label govuk-radios__label" for="ethnicGroup5">
+                <strong>Another ethnic group</strong>
+              </label>
+              <span id="other-hint" class="govuk-hint govuk-radios__hint">
+                Includes any other ethnic group, for example, Arab
+              </span>
+            </div>
+
+            <div class="govuk-radios__divider">or</div>
+
+            <div class="govuk-radios__item">
+              <input class="govuk-radios__input" id="ethnicGroup6" name="ethnicGroup" type="radio" value="Prefer not to say" {{ checked("ethnic-group", "Prefer not to say") }}>
+              <label class="govuk-label govuk-radios__label" for="ethnicGroup6">
+                Prefer not to say
+              </label>
+            </div>
+
+          </div>
+        </fieldset>
+      </div>
+
+      <button class="govuk-button" data-module="govuk-button">Continue</button>
+
+    </form>
+
+  </div>
+</div>
+{% endblock %}

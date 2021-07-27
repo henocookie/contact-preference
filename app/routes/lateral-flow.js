@@ -207,4 +207,60 @@ router.post('/app/share-result-lateral-flow/first-report/choose-result', functio
 });
 
 
+// Test result (first report) - previously reported a result journey
+
+router.post('/app/share-result-lateral-flow/first-report/ethnic-group', function (req, res) {
+  let answer = req.body.ethnicGroup;
+  if (answer === 'Asian or Asian British') {
+    res.redirect('/app/share-result-lateral-flow/first-report/ethnic-background-asian')
+  }
+  if (answer === 'Black, African, Black British or Caribbean') {
+    
+    res.redirect('/app/share-result-lateral-flow/first-report/ethnic-background-black')
+  }
+  if (answer === 'Mixed or multiple ethnic groups') {
+    res.redirect('/app/share-result-lateral-flow/first-report/ethnic-background-mixed')
+  }
+  if (answer === 'White') {
+    res.redirect('/app/share-result-lateral-flow/first-report/ethnic-background-white')
+  }
+  if (answer === 'Another ethnic group') {
+    res.redirect('/app/share-result-lateral-flow/first-report/ethnic-background-another')
+  }
+  if (answer === 'Prefer not to say') {
+    res.redirect('/app/share-result-lateral-flow/first-report/address')
+  } else {
+    res.redirect('/app/share-result-lateral-flow/first-report/ethnic-group')
+  }
+});
+
+// Do you know your NHS number? (first report)
+
+router.post('/app/share-result-lateral-flow/first-report/nhs-number-known', function (req, res) {
+  let answer = req.body.nhsNumberKnown;
+  if (answer === 'Yes') {
+    res.redirect('/app/share-result-lateral-flow/first-report/nhs-number')
+  }
+  if (answer === 'No') {
+    res.redirect('/app/share-result-lateral-flow/first-report/got-email')
+  } else {
+    res.redirect('/app/share-result-lateral-flow/first-report/nhs-number-known')
+  }
+});
+
+// Do you/they have an email address? (first report)
+
+router.post('/app/share-result-lateral-flow/first-report/got-email', function (req, res) {
+  let answer = req.body.gotEmail;
+  if (answer === 'Yes') {
+    res.redirect('/app/share-result-lateral-flow/first-report/email-address')
+  }
+  if (answer === 'No') {
+    res.redirect('/app/share-result-lateral-flow/first-report/mobile')
+  } else {
+    res.redirect('/app/share-result-lateral-flow/first-report/got-email')
+  }
+});
+
+
 module.exports = router;
