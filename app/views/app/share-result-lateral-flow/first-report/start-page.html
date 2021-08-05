@@ -1,0 +1,62 @@
+{% set PROTOTYPEURL = "app/share-result-lateral-flow" %}
+{% set serviceName = "Report a COVID-19 rapid lateral flow test result" %}
+{% set contentTitle = "Report a COVID-19 lateral flow test result" %}
+{% set title = contentTitle + " - " + serviceName %}
+{% if data['appts'] == 'True' %}
+{% set appointmentsActive = "active" %}
+{% elif data['advice'] == 'True' %}
+{% set symptomsActive = "active" %}
+{% elif data['home'] == 'True' %}
+{% endif %}
+{% block pageScripts %}
+{% if data["medLogin"] %}
+<script type="text/javascript">
+$( document ).ready(function() {
+    jQuery.post( "/app/password", { medLogin: "seen" } );
+  });
+</script>
+{% endif %}
+{% endblock %}
+
+
+<!-- Extends the layout from /app/views/layouts/layout.html -->
+{% extends 'layouts/layout-app-new.html' %}
+
+<!-- Set the page title inside this block -->
+{% block pageTitle %}
+  {{ title }}
+{% endblock %}
+
+<!-- Breadcrumb goes inside this block -->
+{% block beforeContent %}
+<nav class="nhsuk-breadcrumb nhs-app-breadcrumb" aria-label="Breadcrumb">
+  <div class="nhsuk-width-container">
+    <ol class="nhsuk-breadcrumb__list">
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Home</a></li>
+      <li class="nhsuk-breadcrumb__item"><a class="nhsuk-breadcrumb__link" href="/{{ PROTOTYPEURL }}/">Your health</a></li>
+    </ol>
+    <p class="nhsuk-breadcrumb__back"><a class="nhsuk-breadcrumb__backlink" href="javascript: window.history.go(-1)">Back</a></p>
+
+  </div>
+</nav>
+{% include "./_parts/silver-banner.html" %}
+
+{% endblock %}
+
+{% block content %}
+  <div class="nhsuk-grid-row">
+    <div class="nhsuk-grid-column-two-thirds">
+
+      <h1 class="nhs-app-xl">{{ contentTitle }}</h1>
+
+      <p>By accessing the report a COVID-19 lateral flow test result service and clicking continue, you're also agreeing to the service's <a href="">terms of use</a> and <a href="">privacy policy</a>.</p>
+
+      <form action="/{{ PROTOTYPEURL }}/first-report/who-are-you-reporting-for-gov" method="post">
+        <input type="submit" class="nhsuk-button" value="Continue">
+        </input>
+      </form>
+
+      <p>Find out <a href="https://www.gov.uk/report-covid19-result" target="blank">more about this service</a> or read more <a href="https://www.nhs.uk/conditions/coronavirus-covid-19/" target="blank">about coronavirus, testing and vaccination on the NHS website</a>.</p>
+    </div>
+  </div>
+{% endblock %}
