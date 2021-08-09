@@ -165,7 +165,7 @@
       <details class="nhsuk-details nhsuk-expander">
         <summary class="nhsuk-details__summary">
           <span class="nhsuk-details__summary-text">
-            First time reporter screens (needs updating)
+            First time reporter screens
           </span>
         </summary>
         <div class="nhsuk-details__text">
@@ -192,13 +192,15 @@
               <a href="/app/records/v3/covid19-services-hub-first-report">COVID-19 services hub</a>
             </li>
           </ul>
+
           <hr>
+
           <ul>
             <li>
               <a href="/{{ PROTOTYPEURL }}/first-report/interrupt">Third party service interrupt</a>
             </li>
             <li>
-              <a href="/{{ PROTOTYPEURL }}/first-report/start-page">Possible start screen</a>
+              <a href="/{{ PROTOTYPEURL }}/first-report/about-service">Find out more about this service</a>
             </li>
             <li>
               <a href="/{{ PROTOTYPEURL }}/first-report/nhs-login">Share NHS login information</a>
@@ -213,7 +215,11 @@
               <a href="/{{ PROTOTYPEURL }}/first-report/did-you-take-this-test-for-your-job-gov">Did you/they take this test for your/their job?</a>
             </li>
             </ul>
-            <p>If test <strong>was taken</strong> for job:</p>
+
+            <hr>
+
+
+            <p><strong>If test was taken for job</strong></p>
             <ul>
             <li>
               <a href="/{{ PROTOTYPEURL }}/first-report/about-work">Tell us about the work</a>
@@ -225,7 +231,52 @@
               <a href="/{{ PROTOTYPEURL }}/first-report/employee-wtp">Did your employer provide the test kit?</a>
             </li>
             </ul>
+
             <hr>
+
+
+            <p><strong>If test was not taken for job</strong></p>
+            <ul>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/first-report/test-reason">Tell us why you took this test</a>
+              </li>
+              </ul>
+              <p>To go to school, college or university, Someone in the household goes to school or college or As someone in a support or childcare bubble of a student:</p>
+              <ul>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/first-report/school-name">What's the name or postcode of the education provider?</a>
+              </li>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/first-report/study-name-code">Enter the name and postcode of the education provider</a>
+              </li>
+              </ul>
+              <p>Another reason:</p>
+              <ul>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/first-report/test-reason-2">Tell us why you took the test (continued)</a>
+              </li>
+            </ul>
+            <p>A community organisation provided the test and a Community Number:</p>
+            <ul>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/first-report/urg-number">Enter your Community Number</a>
+              </li>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/first-report/urg-number-check">These are the details for the Community Number</a>
+              </li>
+            </ul>
+            <p>For visiting someone who gets care or support from social care services or For getting care or support from social care services:</p>
+            <ul>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/first-report/social-care-uon">Enter the unique organisation number (UON)</a>
+              </li>
+              <li>
+                <a href="/{{ PROTOTYPEURL }}/first-report/social-care-uon-check">These are the details for the unique organisation number</a>
+              </li>
+            </ul>
+
+            <hr>
+
             <ul>
             <li>
               <a href="/{{ PROTOTYPEURL }}/first-report/test-date">When was the test taken?<a>
@@ -258,8 +309,17 @@
       <hr>
 
       <section>
-        <h2>Jump off point options</h2>
-        <h3>No COVID-19 services hub</h3>
+        <h2>Archive</h2>
+        <ul>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/first-report/start-page">Possible NHS COVID Pass-style start screen</a>
+          </li>
+          <li>
+            <a href="/{{ PROTOTYPEURL }}/nhs-styles/who-are-you-reporting-for">nhsuk-frontend style service</a>
+          </li>
+        </ul>
+        <h3>Jump off point options</h3>
+        <h4>No COVID-19 services hub</h4>
         <ul>
           <li>
             <a href="/app/v8/index">Report a lateral flow test result on the Home screen and Your health</a>
@@ -268,7 +328,7 @@
             <a href="/app/v8/index-without-lateral-flow-report">Report a lateral flow test result only in Your health</a>
           </li>
         </ul>
-        <h3>COVID-19 services in a hub</h3>
+        <h4>COVID-19 services in a hub</h4>
         <ul>
           <li>
             <a href="/app/records/v3/pre-hub-covid19-services">Only inside Your health</a>
@@ -280,24 +340,13 @@
             <a href="/app/v8/index-covid19-services">On Home screen and inside Your health</a>
           </li>
           </ul>
-          <h4>Popular services renamed to Featured services. Linked profiles, View your GP health record & Order a repeat prescription removed</h3>
+          <h5>Popular services renamed to Featured services. Linked profiles, View your GP health record & Order a repeat prescription removed</h5>
           <ul>
           <li>
             <a href="/app/v8/index-covid-pass-and-lateral-flow">COVID Pass and Lateral flow test result reporting on Home hub without descriptions</a>
           </li>
           <li>
             <a href="/app/v8/index-covid-pass-and-lateral-flow-with-desc">COVID Pass and Lateral flow test result reporting on Home hub with descriptions</a>
-          </li>
-        </ul>
-      </section>
-
-      <hr>
-
-      <section>
-        <h2>Old prototype versions</h2>
-        <ul>
-          <li>
-            <a href="/{{ PROTOTYPEURL }}/nhs-styles/who-are-you-reporting-for">nhsuk-frontend style service</a>
           </li>
         </ul>
       </section>
